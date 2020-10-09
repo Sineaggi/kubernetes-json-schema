@@ -1,0 +1,57 @@
+{
+  "properties": {
+    "spec": {
+      "properties": {
+        "provider": {
+          "description": "Provider of this metric template",
+          "properties": {
+            "address": {
+              "description": "API address of this provider",
+              "type": "string"
+            },
+            "region": {
+              "description": "Region of the provider",
+              "type": "string"
+            },
+            "secretRef": {
+              "description": "Kubernetes secret reference containing the provider credentials",
+              "properties": {
+                "name": {
+                  "description": "Name of the Kubernetes secret",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name"
+              ],
+              "type": "object"
+            },
+            "type": {
+              "description": "Type of this provider",
+              "enum": [
+                "prometheus",
+                "influxdb",
+                "datadog",
+                "cloudwatch",
+                "newrelic"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "type": "object"
+        },
+        "query": {
+          "description": "Query of this metric template",
+          "type": "string"
+        }
+      },
+      "required": [
+        "provider",
+        "query"
+      ]
+    }
+  }
+}

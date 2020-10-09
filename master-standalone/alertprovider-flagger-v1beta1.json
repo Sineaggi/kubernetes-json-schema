@@ -1,0 +1,49 @@
+{
+  "properties": {
+    "spec": {
+      "oneOf": [
+        {
+          "required": [
+            "type",
+            "address"
+          ]
+        },
+        {
+          "required": [
+            "type",
+            "secretRef"
+          ]
+        }
+      ],
+      "properties": {
+        "address": {
+          "description": "Hook URL address of this provider",
+          "type": "string"
+        },
+        "secretRef": {
+          "description": "Kubernetes secret reference containing the provider address",
+          "properties": {
+            "name": {
+              "description": "Name of the Kubernetes secret",
+              "type": "string"
+            }
+          },
+          "required": [
+            "name"
+          ],
+          "type": "object"
+        },
+        "type": {
+          "description": "Type of this provider",
+          "enum": [
+            "slack",
+            "msteams",
+            "discord",
+            "rocket"
+          ],
+          "type": "string"
+        }
+      }
+    }
+  }
+}
