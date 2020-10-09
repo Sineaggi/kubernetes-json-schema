@@ -1,0 +1,9 @@
+---
+apiVersion: 'flagger.app/v1beta1'
+kind: 'MetricTemplate'
+metadata:
+  name: 'test'
+  namespace: 'test'
+spec:
+  provider:
+    type: 'datadog'

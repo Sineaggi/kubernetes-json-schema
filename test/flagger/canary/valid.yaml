@@ -1,0 +1,17 @@
+---
+apiVersion: 'flagger.app/v1beta1'
+kind: 'Canary'
+metadata:
+  name: 'test'
+  namespace: 'test'
+spec:
+  targetRef:
+    apiVersion: 'v1'
+    kind: 'Deployment'
+    name: 'name'
+  service:
+    port: 8080
+  analysis:
+    interval: '1m'
+    threshold: 1
+    iterations: 2

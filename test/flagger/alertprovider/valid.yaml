@@ -1,0 +1,9 @@
+---
+apiVersion: 'flagger.app/v1beta1'
+kind: 'AlertProvider'
+metadata:
+  name: 'test'
+  namespace: 'test'
+spec:
+  address: 'localhost'
+  type: 'slack'

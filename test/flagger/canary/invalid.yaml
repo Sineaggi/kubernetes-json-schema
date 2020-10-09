@@ -1,0 +1,13 @@
+---
+apiVersion: 'flagger.app/v1beta1'
+kind: 'Canary'
+metadata:
+  name: 'test'
+  namespace: 'test'
+spec:
+  targetRef:
+    apiVersion: 'v1'
+    kind: 'Deployment'
+    name: 'name'
+  service:
+    port: 8080
